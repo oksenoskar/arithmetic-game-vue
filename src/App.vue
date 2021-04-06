@@ -88,7 +88,7 @@ export default {
 
 .button {
   display: inline-block;
-  border-radius: 4px;
+  border-radius: 5px;
   background-color: #00e16e;
   border: none;
   color: #FFFFFF;
