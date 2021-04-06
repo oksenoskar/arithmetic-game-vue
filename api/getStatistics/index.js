@@ -1,7 +1,7 @@
 const azure = require('azure-storage');
 
 module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+    context.log('JavaScript HTTP trigger funcst.');
 
     const connectionString = process.env['STORAGE_CONNECTION_STRING'];
     var tableSvc = azure.createTableService(connectionString);
