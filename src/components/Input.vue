@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>Solve {{ problem }}</h1>
+    <h1>Solveleet {{ problem }}</h1>
       <input 
         ref="inputField"
         type="number"
