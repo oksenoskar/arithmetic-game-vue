@@ -1,43 +1,87 @@
 <template>
   <div style="padding: 20px">
-    <input 
-      ref="inputPassword"
-      type="text"
-      id="password"
-      v-model="password"
-      placeholder="Input password..."
-    >
+      <input
+        class="input shadow shadow-box shadow-focus"
+        ref="inputPassword"
+        type="text"
+        id="password"
+        v-model="password"
+        placeholder="password" 
+      >
   </div>
-  <div style="padding: 20px">
+  
+  <div >
     <input 
+        class="shadow shadow-box shadow-focus"
         ref="inputToDecrypt"
         type="text"
         id="inputToDecrypt"
         v-model="input"
-        placeholder="Input string to be decrypted ..."
+        placeholder="Text to Encrypt"
+        style="width:35%; margin:100px;"
+        
       >
-  </div>
-    <button class="button" v-on:click="encrypt()">
-      <span>Start</span>
-    </button>
-    <div style="padding: 20px">
-    {{ result }}
-    </div>
-  <div style="padding: 20px">
-    <input 
+  
+    <input
+        class="shadow shadow-box shadow-focus" 
         ref="inputToDecrypt"
         type="text"
         id="inputToDecrypt"
         v-model="inputDekrypter"
-        placeholder="Input string to be decrypted ..."
+        placeholder="Text to be Decrypted"
+        style="width:35%; margin:100px;"
       >
   </div>
-    <button class="button" v-on:click="decrypt()">
-      <span>Start</span>
+  
+  
+  <div>
+    <button 
+      class="button neumorphic-shadows neumorphic-shadows-hover beumorphoc-shadow-active" v-on:click="encrypt()"
+      style="margin-top: 1px;
+                    margin-bottom: 1px;
+                    margin-right: 380px;
+                    margin-left: 100px;" 
+    >
+      <span>Encrypt</span>
     </button>
-    <div style="padding: 20px">
+
+    <button 
+      class="button neumorphic-shadows neumorphic-shadows-hover beumorphoc-shadow-active" v-on:click="decrypt()"
+      style="margin-top: 1px;
+                    margin-bottom: 1px;
+                    margin-right: 100px;
+                    margin-left: 380px;"
+    >
+      <span>Decrypt</span>
+    </button>
+  </div>
+
+
+  <div style="margin-top: 50px;
+                    margin-bottom: 1px;
+                    margin-right: 950px;
+                    margin-left: 50px;"
+  >
+    {{ result }} 
+
+
+  </div>
+
+  <div style="margin-top: -30px;
+                    margin-bottom: 1px;
+                    margin-right: 50px;
+                    margin-left: 950px;"
+  >
     {{ resultDekryptert }}
-    </div>
+
+  </div>
+
+
+
+
+
+
+
 </template>
 
 <script>
@@ -78,51 +122,97 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  font-size: 20px;
+  color: 1px 1px 0 #fff;
   margin-top: 60px;
+  letter-spacing: -0.2px;
+}
+
+
+
+bbody, html {
+  background-color:#EBECF0;
 }
 
 .button {
-  display: inline-block;
-  border-radius: 5px;
-  background-color: #00e16e;
-  border: none;
-  color: #FFFFFF;
+  background-color: #E6E7EE;
+  border: 1px solid #d1d9e6;
+  padding: 60px 35px;
+  border-radius: 200px;
+  font-size: 20px;
+  
+  outline:none;
+} 
+
+.neumorphic-shadows {
+  color:#FF6600;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px #FFF,  5px 5px 20px #BABECC;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.neumorphic-shadows-hover:hover {
+  cursor: pointer;
+  box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+
+.beumorphoc-shadow-active:active {
+  box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+
+
+body, p, input, select, textarea, button {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.2px;
+    font-size: 16px;
+    
+}
+
+.shadow{
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  border-radius: 320px;
+  padding: 16px;
+  background-color:#EBECF0;
+  text-shadow: 1px 1px 0 #fff;
   text-align: center;
-  font-size: calc(2vw + 2vh + 1vmin);
-  padding: 2px;
-  width: 25%;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
+}
+.shadow-box {
+  margin-right: $ruler/2;
+  box-shadow:  inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.shadow-focus:focus {
+  box-shadow:  inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
 }
 
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+
+
+.input {
+  width: 300px;
 }
 
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+
+html::after{
+  content:'';
+	background: linear-gradient(21deg, #1beabd, #010b63);
+	height:4px;
+	width:100%;
+	position:absolute;
+	left:0;
+	top:0;
 }
 
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
 </style>
